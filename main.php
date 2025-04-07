@@ -22,7 +22,7 @@ $usuarios = $conn->query("SELECT * FROM cliente");
 <?php include 'menu.php'; ?>
 
 <div class="container">
-    <h2>Bem-vindo, <?php echo $_SESSION['nome']; ?>!</h2>
+    <h2>Bem-vindo(a), <?php echo $_SESSION['nome']; ?>!</h2>
     <p>Gerencie os usuários abaixo:</p>
 
     <form action="adiciona_usuario.php" method="POST" class="form-inline">
