@@ -26,7 +26,7 @@ $usuarios = $conn->query("SELECT * FROM cliente");
     <p>Gerencie os usuários abaixo:</p>
 
     <form action="adiciona_usuario.php" method="POST" class="form-inline">
-        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="text" name="nome" placeholder="Login" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="senha" placeholder="Senha" required>
         <button type="submit">Adicionar Usuário</button>
@@ -36,7 +36,7 @@ $usuarios = $conn->query("SELECT * FROM cliente");
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>Login</th>
                 <th>Email</th>
                 <th>Senha (Texto)</th>
                 <th>Ação</th>
@@ -46,7 +46,7 @@ $usuarios = $conn->query("SELECT * FROM cliente");
             <?php while($row = $usuarios->fetch_assoc()): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
-                    <td><?= $row['nome'] ?></td>
+                    <td><?= $row['login'] ?></td>
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['senha'] ?></td>
                     <td>
