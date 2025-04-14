@@ -19,10 +19,10 @@ $usuarios = $conn->query("SELECT * FROM cliente");
 </head>
 <body>
 
-<?php include 'menu.php'; ?>
+<?php include 'menu.php'; ?> 
 
 <div class="container">
-    <h2>Bem-vindo(a), <?php echo $_SESSION['nome']; ?>!</h2>
+    <h2>Bem-vindo <?php echo $_SESSION['nome']; ?>!</h2>
     <p>Gerencie os usuários abaixo:</p>
 
     <form action="adiciona_usuario.php" method="POST" class="form-inline">
@@ -43,7 +43,7 @@ $usuarios = $conn->query("SELECT * FROM cliente");
             </tr>
         </thead>
         <tbody>
-            <?php while($row = $usuarios->fetch_assoc()): ?>
+               <?php while($row = $usuarios->fetch_assoc()): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= $row['login'] ?></td>

@@ -19,7 +19,7 @@ $result = $conn->query("SELECT * FROM estoque");
 <?php include 'menu.php'; ?>
 
 <div class="container">
-    <h2>🧾 Ingredientes em Estoque</h2>
+    <h2> Ingredientes em Estoque</h2>
 
     <!-- Formulário para adicionar ingrediente -->
     <form action="adiciona_ingrediente.php" method="POST" class="form-inline">

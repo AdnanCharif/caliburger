@@ -22,7 +22,7 @@ $result = $conn->query("SELECT * FROM cardapio");
 <?php include 'menu.php'; ?>
 
 <div class="container">
-    <h2>🍟 Itens do Cardápio</h2>
+    <h2> Itens do Cardápio</h2>
     <table class="styled-table">
         <thead>
             <tr>

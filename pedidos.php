@@ -22,7 +22,7 @@ $result = $conn->query("SELECT * FROM pedido");
 <?php include 'menu.php'; ?>
 
 <div class="container">
-    <h2>🍔 Pedidos Realizados</h2>
+    <h2> Pedidos Realizados</h2>
     <table class="styled-table">
         <thead>
             <tr>
