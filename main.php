@@ -26,8 +26,14 @@ $usuarios = $conn->query("SELECT * FROM cliente");
     <p>Gerencie os usuários abaixo:</p>
 
     <form action="adiciona_usuario.php" method="POST" class="form-inline">
-        <input type="text" name="nome" placeholder="Login" required>
+        <input type="text" name="login" placeholder="Login" required>
         <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="cpf" placeholder="CPF" required>
+        <input type="date" name="data_nasc" placeholder="Data de Nascimento" required>
+        <input type="text" name="end_estado" placeholder="Estado" required>
+        <input type="text" name="end_cidade" placeholder="Cidade" required>
+        <input type="text" name="end_bairro" placeholder="Bairro" required>
+        <input type="text" name="end_logradouro" placeholder="Logradouro" required>
         <input type="text" name="senha" placeholder="Senha" required>
         <button type="submit">Adicionar Usuário</button>
     </form>
@@ -38,17 +44,17 @@ $usuarios = $conn->query("SELECT * FROM cliente");
                 <th>ID</th>
                 <th>Login</th>
                 <th>Email</th>
-                <th>Senha (Texto)</th>
+                <th>Endereço</th>
                 <th>Ação</th>
             </tr>
         </thead>
         <tbody>
-               <?php while($row = $usuarios->fetch_assoc()): ?>
+            <?php while($row = $usuarios->fetch_assoc()): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= $row['login'] ?></td>
                     <td><?= $row['email'] ?></td>
-                    <td><?= $row['senha'] ?></td>
+                    <td><?= $row['end_logradouro'] ?></td>
                     <td>
                         <form action="deleta_usuario.php" method="POST" onsubmit="return confirm('Deseja excluir este usuário?');">
                             <input type="hidden" name="id" value="<?= $row['id'] ?>">

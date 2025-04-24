@@ -5,7 +5,17 @@ if (!isset($_SESSION['nome'])) {
     exit();
 }
 include 'conexao.php';
-$result = $conn->query("SELECT * FROM pedido");
+
+// Pega os filtros de data se existirem
+$data_inicio = isset($_GET['data_inicio']) ? $_GET['data_inicio'] : '';
+$data_fim = isset($_GET['data_fim']) ? $_GET['data_fim'] : '';
+
+// Monta a consulta SQL com ou sem filtro
+$sql = "SELECT * FROM pedido";
+if (!empty($data_inicio) && !empty($data_fim)) {
+    $sql .= " WHERE data_pedido BETWEEN '$data_inicio 00:00:00' AND '$data_fim 23:59:59'";
+}
+$result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,7 +32,20 @@ $result = $conn->query("SELECT * FROM pedido");
 <?php include 'menu.php'; ?>
 
 <div class="container">
-    <h2> Pedidos Realizados</h2>
+    <h2>Pedidos Realizados</h2>
+
+    <div class="filter-container">
+        <form method="get" action="">
+            <label for="data_inicio">De:</label>
+            <input type="date" name="data_inicio" id="data_inicio" value="<?= $data_inicio ?>">
+
+            <label for="data_fim">Até:</label>
+            <input type="date" name="data_fim" id="data_fim" value="<?= $data_fim ?>">
+
+            <button type="submit">Filtrar</button>
+        </form>
+    </div>
+
     <table class="styled-table">
         <thead>
             <tr>
@@ -32,6 +55,7 @@ $result = $conn->query("SELECT * FROM pedido");
                 <th>Cliente</th>
                 <th>Aceito</th>
                 <th>Observação</th>
+                <th>Data do Pedido</th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +67,7 @@ $result = $conn->query("SELECT * FROM pedido");
                     <td><?= $row['nome_cliente'] ?></td>
                     <td><?= $row['aceito'] ? 'Sim' : 'Não' ?></td>
                     <td><?= $row['observacao'] ?></td>
+                    <td><?= date('d/m/Y H:i', strtotime($row['data_pedido'])) ?></td>
                 </tr>
             <?php endwhile; ?>
         </tbody>

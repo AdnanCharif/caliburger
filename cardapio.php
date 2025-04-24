@@ -29,6 +29,7 @@ $result = $conn->query("SELECT * FROM cardapio");
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Preço</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ $result = $conn->query("SELECT * FROM cardapio");
                     <td><?= $row['id'] ?></td>
                     <td><?= $row['nome'] ?></td>
                     <td><?= $row['descricao'] ?></td>
+                    <td><?= $row['preco'] ?></td>
                 </tr>
             <?php endwhile; ?>
         </tbody>

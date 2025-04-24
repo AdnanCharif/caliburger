@@ -142,3 +142,58 @@
     background-color: #a93226;
   }
   
+  /* Estilo para o filtro de datas */
+.filter-container {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-container label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.filter-container input[type="date"] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  width: 170px;
+  transition: 0.3s;
+}
+
+/* Ícone padrão removido no Chrome para customizar a aparência */
+.filter-container input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(28%) sepia(94%) saturate(492%) hue-rotate(340deg) brightness(95%) contrast(92%);
+  margin-left: 5px;
+}
+
+.filter-container input[type="date"]:hover,
+.filter-container input[type="date"]:focus {
+  border-color: #e63946;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(230, 57, 70, 0.3);
+}
+
+.filter-container button {
+  padding: 8px 16px;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.filter-container button:hover {
+  background-color: #d62828;
+}
